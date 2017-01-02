@@ -1,9 +1,37 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+.dayTable {
+    position: relative;
+    margin: 0 auto;
+    width: 80%;
+    font-family: Arial, sans-serif;
+}
+
+tr {
+    width: 100%;
+}
+
 td {
     background-color: #eee;
     padding: 10px;
+    text-align: center;
 }
 
-.booked {
+.hour {
+
+    background-color: #ccc;
+    
+}
+
+.avail {
     background-color: blue;
     color: white;
 }
+
+.avail:hover {
+    background-color: red;
+    transform: scale(1.05);
+}
+

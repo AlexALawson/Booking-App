@@ -68,62 +68,150 @@
 		},
 		render: function render() {
 			return React.createElement(
-				'tbody',
+				'table',
 				null,
 				React.createElement(
-					'tr',
+					'tbody',
 					null,
 					React.createElement(
-						'td',
+						'tr',
 						null,
-						'8'
+						React.createElement('td', null),
+						React.createElement(
+							'td',
+							null,
+							'Tue, January 3'
+						),
+						React.createElement(
+							'td',
+							null,
+							'Wed, January 4'
+						),
+						React.createElement(
+							'td',
+							null,
+							'Thu, January 5'
+						)
 					),
 					React.createElement(
-						'td',
+						'tr',
 						null,
-						'Appointment'
-					)
-				),
-				React.createElement(
-					'tr',
-					null,
-					React.createElement(
-						'td',
-						null,
-						'9'
+						React.createElement(
+							'td',
+							null,
+							'8'
+						),
+						React.createElement('td', null),
+						React.createElement('td', null),
+						React.createElement(
+							'td',
+							{ className: 'avail' },
+							'Available'
+						)
 					),
 					React.createElement(
-						'td',
+						'tr',
 						null,
-						'Appointment'
-					)
-				),
-				React.createElement(
-					'tr',
-					null,
-					React.createElement(
-						'td',
-						null,
-						'10'
+						React.createElement(
+							'td',
+							null,
+							'9'
+						),
+						React.createElement('td', null),
+						React.createElement(
+							'td',
+							{ className: 'avail' },
+							'Available'
+						),
+						React.createElement(
+							'td',
+							{ className: 'avail' },
+							'Available'
+						)
 					),
 					React.createElement(
-						'td',
+						'tr',
 						null,
-						'Appointment'
-					)
-				),
-				React.createElement(
-					'tr',
-					null,
-					React.createElement(
-						'td',
-						null,
-						'11'
+						React.createElement(
+							'td',
+							null,
+							'10'
+						),
+						React.createElement('td', null),
+						React.createElement(
+							'td',
+							{ className: 'avail' },
+							'Available'
+						),
+						React.createElement('td', null)
 					),
 					React.createElement(
-						'td',
-						{ classList: 'booked' },
-						'Appointment'
+						'tr',
+						null,
+						React.createElement(
+							'td',
+							null,
+							'11'
+						),
+						React.createElement(
+							'td',
+							{ className: 'avail' },
+							'Available'
+						),
+						React.createElement('td', null),
+						React.createElement('td', null)
+					),
+					React.createElement(
+						'tr',
+						null,
+						React.createElement(
+							'td',
+							null,
+							'12'
+						),
+						React.createElement(
+							'td',
+							{ className: 'avail' },
+							'Available'
+						),
+						React.createElement('td', null),
+						React.createElement('td', null)
+					),
+					React.createElement(
+						'tr',
+						null,
+						React.createElement(
+							'td',
+							null,
+							'1'
+						),
+						React.createElement(
+							'td',
+							{ className: 'avail' },
+							'Available'
+						),
+						React.createElement(
+							'td',
+							{ className: 'avail' },
+							'Available'
+						),
+						React.createElement('td', null)
+					),
+					React.createElement(
+						'tr',
+						null,
+						React.createElement(
+							'td',
+							null,
+							'2'
+						),
+						React.createElement('td', null),
+						React.createElement(
+							'td',
+							{ className: 'avail' },
+							'Available'
+						),
+						React.createElement('td', null)
 					)
 				)
 			);

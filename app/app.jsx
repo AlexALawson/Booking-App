@@ -19,24 +19,58 @@ const DaySchedule = React.createClass({
 	},
     render: function() {
         return (
-            <tbody>
-				<tr>
-					<td>8</td>
-					<td>Appointment</td>
-				</tr>
-				<tr>
-					<td>9</td>
-					<td>Appointment</td>
-				</tr>
-				<tr>
-					<td>10</td>
-					<td>Appointment</td>
-				</tr>
-				<tr>
-					<td>11</td>
-					<td classList="booked">Appointment</td>
-				</tr>
-			</tbody>
+			<table>
+				<tbody>
+					<tr>
+						<td></td>
+						<td>Tue, January 3</td>
+						<td>Wed, January 4</td>
+						<td>Thu, January 5</td>
+					</tr>
+					<tr>
+						<td>8</td>
+						<td></td>
+						<td></td>
+						<td className='avail'>Available</td>
+					</tr>
+					<tr>
+						<td>9</td>
+						<td></td>
+						<td className='avail'>Available</td>
+						<td className='avail'>Available</td>
+					</tr>
+					<tr>
+						<td>10</td>
+						<td></td>
+						<td className='avail'>Available</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>11</td>
+						<td className='avail'>Available</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>12</td>
+						<td className='avail'>Available</td>
+						<td></td>
+						<td></td>
+					</tr>        
+					<tr>
+						<td>1</td>
+						<td className='avail'>Available</td>
+						<td className='avail'>Available</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td></td>
+						<td className='avail'>Available</td>
+						<td></td>
+					</tr>												
+				</tbody>
+			</table>
         )
     }
 });
