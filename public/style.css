@@ -1,0 +1,9 @@
+td {
+    background-color: #eee;
+    padding: 10px;
+}
+
+.booked {
+    background-color: blue;
+    color: white;
+}

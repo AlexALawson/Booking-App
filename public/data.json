@@ -1,0 +1,29 @@
+{
+    "schedule": [
+        {
+            "timeSlot": "8am",
+            "status": "booked"
+        },
+        {
+            "timeSlot": "9am",
+            "status": "free"
+        },
+        {
+            "timeSlot": "10am",
+            "status": "free"
+        },
+        {
+            "timeSlot": "11am",
+            "status": "booked"
+        },
+        {
+            "timeSlot": "12pm",
+            "status": "booked"
+        },
+        {
+            "timeSlot": "1pm",
+            "status": "free"
+        },
+    ]
+
+}
