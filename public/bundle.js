@@ -67,12 +67,13 @@
 			});
 		},
 		render: function render() {
+			var order0 = "order:0";
 			return React.createElement(
 				'div',
 				null,
 				React.createElement(
 					'div',
-					{ className: 'dayTable-cell dayTable-cell--header' },
+					{ style: { order0: order0 }, className: 'dayTable-cell dayTable-cell--header' },
 					React.createElement(
 						'h3',
 						null,
