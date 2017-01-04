@@ -64,67 +64,67 @@
 				th.setState({
 					schedule: result.data.schedule
 				});
+				console.log(th.state.schedule);
 			});
 		},
 		render: function render() {
+
 			return React.createElement(
-				'tbody',
+				'div',
 				null,
 				React.createElement(
-					'tr',
-					null,
+					'div',
+					{ style: { order: 0 }, className: 'dayTable-cell dayTable-cell--header' },
 					React.createElement(
-						'td',
+						'h3',
 						null,
-						'8'
-					),
-					React.createElement(
-						'td',
-						null,
-						'Appointment'
+						'Tue, January 3'
 					)
 				),
 				React.createElement(
-					'tr',
-					null,
-					React.createElement(
-						'td',
-						null,
-						'9'
-					),
-					React.createElement(
-						'td',
-						null,
-						'Appointment'
-					)
+					'div',
+					{ style: { order: 1 }, className: 'dayTable-cell' },
+					'8am'
 				),
 				React.createElement(
-					'tr',
-					null,
-					React.createElement(
-						'td',
-						null,
-						'10'
-					),
-					React.createElement(
-						'td',
-						null,
-						'Appointment'
-					)
+					'div',
+					{ style: { order: 2 }, className: 'dayTable-cell' },
+					'9am'
 				),
 				React.createElement(
-					'tr',
-					null,
-					React.createElement(
-						'td',
-						null,
-						'11'
-					),
-					React.createElement(
-						'td',
-						{ classList: 'booked' },
-						'Appointment'
-					)
+					'div',
+					{ style: { order: 3 }, className: 'dayTable-cell dayTable-cell--avail' },
+					'10am'
+				),
+				React.createElement(
+					'div',
+					{ style: { order: 4 }, className: 'dayTable-cell dayTable-cell--avail' },
+					'11am'
+				),
+				React.createElement(
+					'div',
+					{ style: { order: 5 }, className: 'dayTable-cell dayTable-cell--avail' },
+					'12pm'
+				),
+				React.createElement(
+					'div',
+					{ style: { order: 6 }, className: 'dayTable-cell' },
+					'1pm'
+				),
+				React.createElement(
+					'div',
+					{ style: { order: 7 }, className: 'dayTable-cell' },
+					'2pm'
+				),
+				React.createElement(
+					'div',
+					{ style: { order: 8 }, className: 'dayTable-cell dayTable-cell--avail' },
+					'3pm'
+				),
+				React.createElement(
+					'div',
+					{ style: { order: 9 }, className: 'dayTable-cell' },
+					'4pm'
 				)
 			);
 		}
