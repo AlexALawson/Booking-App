@@ -1,29 +1,38 @@
 {
     "schedule": [
-        {
-            "timeSlot": "8am",
-            "status": "booked"
-        },
-        {
-            "timeSlot": "9am",
-            "status": "free"
-        },
-        {
-            "timeSlot": "10am",
-            "status": "free"
-        },
-        {
-            "timeSlot": "11am",
-            "status": "booked"
-        },
-        {
-            "timeSlot": "12pm",
-            "status": "booked"
-        },
-        {
-            "timeSlot": "1pm",
-            "status": "free"
-        },
+        "20170104": [
+                {
+                    "timeSlot": "9am",
+                    "client": "Jane Doe",
+                    "type": "Wedding consult"
+                },
+                {
+                    "timeSlot": "10am",
+                    "client": "John Smith",
+                    "type": "Portrait shoot"
+                },
+                {
+                    "timeSlot": "2pm",
+                    "client": "Pat McPatterson",
+                    "type": "Family shoot"
+                }
+            ],
+            "20170105": [
+                {
+                    "timeSlot": "11am",
+                    "client": "Freddie King",
+                    "type": "Band shoot"
+                },
+                {
+                    "timeSlot": "12pm",
+                    "client": "Freddie King",
+                    "type": "Band shoot"
+                },
+                {
+                    "timeSlot": "1pm",
+                    "client": "Putin/Trump",
+                    "type": "Engagement consult"
+                }
+            ]
     ]
-
 }

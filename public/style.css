@@ -2,6 +2,7 @@ body {
     margin: 0;
     padding: 0;
 }
+
 .dayTable {
     position: relative;
     margin: 0 auto;
@@ -20,9 +21,7 @@ td {
 }
 
 .hour {
-
     background-color: #ccc;
-    
 }
 
 .avail {
@@ -34,4 +33,3 @@ td {
     background-color: red;
     transform: scale(1.05);
 }
-
