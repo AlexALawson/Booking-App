@@ -1,3 +1,25 @@
+/* Page styling
+================================== */
+html {
+  height: 100%;
+  background-color: cornflowerblue;
+}
+body {
+  box-sizing: border-box;
+  min-height: 100%;
+  margin: 0 auto;
+  padding: 2em;
+  max-width: 800px;
+  font-family: 'Arial', sans-serif;
+  font-size: 1.2em;
+  background-color: white;
+  border-left: solid 3px #DDD;
+  border-right: solid 3px #DDD;
+}
+
+
+/* Table styling
+================================== */
 .dayTable-cell {
   box-sizing: border-box;
   -webkit-box-flex: 1;
@@ -32,5 +54,5 @@
 
 .dayTable-cell--avail:hover {
   background-color: rgb(0,0,255);
-  transform: scale(1.05);
+  transform: scale(1.01);
 }
