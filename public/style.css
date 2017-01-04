@@ -1,35 +1,36 @@
-body {
-    margin: 0;
-    padding: 0;
+.dayTable-cell {
+  box-sizing: border-box;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  width: 100%;
+  padding: 0.8em 1.2em;
+  overflow: hidden;
+  list-style: none;
+  border: solid 3px white;
+  background: rgba(112, 128, 144, 0.2);
+  margin: -3px 0 0 -3px;
+  background-color: #eee;
+  border-color: #c2c6c9;
+  color: #c2c6c9;
+  text-align: center;
 }
 
-.dayTable {
-    position: relative;
-    margin: 0 auto;
-    width: 80%;
-    font-family: Arial, sans-serif;
+.dayTable-cell > h3 {
+  margin: 0;
+}
+.dayTable-cell--header {
+  background-color: slategrey;
+  border-color: #5a6673;
+  color: white;
 }
 
-tr {
-    width: 100%;
+.dayTable-cell--avail {
+  background-color: rgb(0,0,155);
+  color: white;
 }
 
-td {
-    background-color: #eee;
-    padding: 10px;
-    text-align: center;
-}
-
-.hour {
-    background-color: #ccc;
-}
-
-.avail {
-    background-color: blue;
-    color: white;
-}
-
-.avail:hover {
-    background-color: red;
-    transform: scale(1.05);
+.dayTable-cell--avail:hover {
+  background-color: rgb(0,0,255);
+  transform: scale(1.05);
 }

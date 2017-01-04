@@ -68,151 +68,61 @@
 		},
 		render: function render() {
 			return React.createElement(
-				'table',
+				'div',
 				null,
 				React.createElement(
-					'tbody',
-					null,
+					'div',
+					{ className: 'dayTable-cell dayTable-cell--header' },
 					React.createElement(
-						'tr',
+						'h3',
 						null,
-						React.createElement('td', null),
-						React.createElement(
-							'td',
-							null,
-							'Tue, January 3'
-						),
-						React.createElement(
-							'td',
-							null,
-							'Wed, January 4'
-						),
-						React.createElement(
-							'td',
-							null,
-							'Thu, January 5'
-						)
-					),
-					React.createElement(
-						'tr',
-						null,
-						React.createElement(
-							'td',
-							null,
-							'8'
-						),
-						React.createElement('td', null),
-						React.createElement('td', null),
-						React.createElement(
-							'td',
-							{ className: 'avail' },
-							'Available'
-						)
-					),
-					React.createElement(
-						'tr',
-						null,
-						React.createElement(
-							'td',
-							null,
-							'9'
-						),
-						React.createElement('td', null),
-						React.createElement(
-							'td',
-							{ className: 'avail' },
-							'Available'
-						),
-						React.createElement(
-							'td',
-							{ className: 'avail' },
-							'Available'
-						)
-					),
-					React.createElement(
-						'tr',
-						null,
-						React.createElement(
-							'td',
-							null,
-							'10'
-						),
-						React.createElement('td', null),
-						React.createElement(
-							'td',
-							{ className: 'avail' },
-							'Available'
-						),
-						React.createElement('td', null)
-					),
-					React.createElement(
-						'tr',
-						null,
-						React.createElement(
-							'td',
-							null,
-							'11'
-						),
-						React.createElement(
-							'td',
-							{ className: 'avail' },
-							'Available'
-						),
-						React.createElement('td', null),
-						React.createElement('td', null)
-					),
-					React.createElement(
-						'tr',
-						null,
-						React.createElement(
-							'td',
-							null,
-							'12'
-						),
-						React.createElement(
-							'td',
-							{ className: 'avail' },
-							'Available'
-						),
-						React.createElement('td', null),
-						React.createElement('td', null)
-					),
-					React.createElement(
-						'tr',
-						null,
-						React.createElement(
-							'td',
-							null,
-							'1'
-						),
-						React.createElement(
-							'td',
-							{ className: 'avail' },
-							'Available'
-						),
-						React.createElement(
-							'td',
-							{ className: 'avail' },
-							'Available'
-						),
-						React.createElement('td', null)
-					),
-					React.createElement(
-						'tr',
-						null,
-						React.createElement(
-							'td',
-							null,
-							'2'
-						),
-						React.createElement('td', null),
-						React.createElement(
-							'td',
-							{ className: 'avail' },
-							'Available'
-						),
-						React.createElement('td', null)
+						'Tue, January 3'
 					)
+				),
+				React.createElement(
+					'div',
+					{ className: 'dayTable-cell' },
+					'8am'
+				),
+				React.createElement(
+					'div',
+					{ className: 'dayTable-cell' },
+					'9am'
+				),
+				React.createElement(
+					'div',
+					{ className: 'dayTable-cell dayTable-cell--avail' },
+					'10am'
+				),
+				React.createElement(
+					'div',
+					{ className: 'dayTable-cell dayTable-cell--avail' },
+					'11am'
+				),
+				React.createElement(
+					'div',
+					{ className: 'dayTable-cell dayTable-cell--avail' },
+					'12pm'
+				),
+				React.createElement(
+					'div',
+					{ className: 'dayTable-cell' },
+					'1pm'
+				),
+				React.createElement(
+					'div',
+					{ className: 'dayTable-cell' },
+					'2pm'
+				),
+				React.createElement(
+					'div',
+					{ className: 'dayTable-cell dayTable-cell--avail' },
+					'3pm'
+				),
+				React.createElement(
+					'div',
+					{ className: 'dayTable-cell' },
+					'4pm'
 				)
 			);
 		}

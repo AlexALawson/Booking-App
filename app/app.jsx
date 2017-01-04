@@ -19,58 +19,20 @@ const DaySchedule = React.createClass({
 	},
     render: function() {
         return (
-			<table>
-				<tbody>
-					<tr>
-						<td></td>
-						<td>Tue, January 3</td>
-						<td>Wed, January 4</td>
-						<td>Thu, January 5</td>
-					</tr>
-					<tr>
-						<td>8</td>
-						<td></td>
-						<td></td>
-						<td className='avail'>Available</td>
-					</tr>
-					<tr>
-						<td>9</td>
-						<td></td>
-						<td className='avail'>Available</td>
-						<td className='avail'>Available</td>
-					</tr>
-					<tr>
-						<td>10</td>
-						<td></td>
-						<td className='avail'>Available</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>11</td>
-						<td className='avail'>Available</td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>12</td>
-						<td className='avail'>Available</td>
-						<td></td>
-						<td></td>
-					</tr>        
-					<tr>
-						<td>1</td>
-						<td className='avail'>Available</td>
-						<td className='avail'>Available</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td></td>
-						<td className='avail'>Available</td>
-						<td></td>
-					</tr>												
-				</tbody>
-			</table>
+			<div>
+				<div className="dayTable-cell dayTable-cell--header"><h3>Tue, January 3</h3></div>
+				<div className="dayTable-cell">8am</div>
+				<div className="dayTable-cell">9am</div>
+				<div className="dayTable-cell dayTable-cell--avail">10am</div>
+				<div className="dayTable-cell dayTable-cell--avail">11am</div>
+				<div className="dayTable-cell dayTable-cell--avail">12pm</div>
+				<div className="dayTable-cell">1pm</div>
+				<div className="dayTable-cell">2pm</div>
+				<div className="dayTable-cell dayTable-cell--avail">3pm</div>
+				<div className="dayTable-cell">4pm</div>
+
+
+			</div>
         )
     }
 });
