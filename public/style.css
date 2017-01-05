@@ -20,6 +20,23 @@ body {
 
 /* Table styling
 ================================== */
+.dayTable {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 0 0 3em 0;
+  padding: 0;
+  position: relative;
+  top: 3px;
+  left: 3px;
+}
+
+.dayTable--3cols > .dayTable-cell {
+  width: 33.33%;
+}
+
 .dayTable-cell {
   box-sizing: border-box;
   -webkit-box-flex: 1;
@@ -41,6 +58,7 @@ body {
 .dayTable-cell > h3 {
   margin: 0;
 }
+
 .dayTable-cell--header {
   background-color: slategrey;
   border-color: #5a6673;
@@ -55,4 +73,21 @@ body {
 .dayTable-cell--avail:hover {
   background-color: rgb(0,0,255);
   transform: scale(1.01);
+}
+
+/* Responsive
+==================================== */
+@media all and (max-width: 740px) {
+  .dayTable--collapse {
+    display: block;
+  }
+  .dayTable--collapse > .dayTable-cell {
+    width: 100% !important;
+  }
+}
+.no-flexbox .dayTable {
+  display: block;
+}
+.no-flexbox .dayTable > .dayTable-cell {
+  width: 100%;
 }
