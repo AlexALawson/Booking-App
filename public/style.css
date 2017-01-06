@@ -16,7 +16,32 @@ body {
   border-left: solid 3px #DDD;
   border-right: solid 3px #DDD;
 }
+.dayView-header {
 
+  margin: 0 auto;
+  text-align: center;
+}
+.header {
+  display: inline-block;
+}
+.button-left {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 12px 12px 12px 0;
+  border-color: transparent #007bff transparent transparent;
+  display: inline-block;
+  margin: 0 5px;
+}
+.button-right {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 12px 0 12px 12px;
+  border-color: transparent transparent transparent #007bff;
+  display: inline-block;
+  margin: 0 5px;
+}
 
 /* Table styling
 ================================== */

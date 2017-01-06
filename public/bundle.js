@@ -77,168 +77,183 @@
 
 			return React.createElement(
 				'div',
-				{ className: 'dayTable dayTable--3cols dayTable--collapse' },
+				null,
 				React.createElement(
 					'div',
-					{ style: { order: 0 }, className: 'dayTable-cell dayTable-cell--header' },
+					{ className: 'dayView-header' },
+					React.createElement('div', { className: 'button-left' }),
 					React.createElement(
-						'h3',
-						null,
-						this.dayView(-1)
-					)
+						'h2',
+						{ className: 'header' },
+						'Select a Time'
+					),
+					React.createElement('div', { className: 'button-right' })
 				),
 				React.createElement(
 					'div',
-					{ style: { order: 1 }, className: 'dayTable-cell' },
-					'8am'
-				),
-				React.createElement(
-					'div',
-					{ style: { order: 2 }, className: 'dayTable-cell' },
-					'9am'
-				),
-				React.createElement(
-					'div',
-					{ style: { order: 3 }, className: 'dayTable-cell' },
-					'10am'
-				),
-				React.createElement(
-					'div',
-					{ style: { order: 4 }, className: 'dayTable-cell' },
-					'11am'
-				),
-				React.createElement(
-					'div',
-					{ style: { order: 5 }, className: 'dayTable-cell' },
-					'12pm'
-				),
-				React.createElement(
-					'div',
-					{ style: { order: 6 }, className: 'dayTable-cell' },
-					'1pm'
-				),
-				React.createElement(
-					'div',
-					{ style: { order: 7 }, className: 'dayTable-cell' },
-					'2pm'
-				),
-				React.createElement(
-					'div',
-					{ style: { order: 8 }, className: 'dayTable-cell' },
-					'3pm'
-				),
-				React.createElement(
-					'div',
-					{ style: { order: 9 }, className: 'dayTable-cell' },
-					'4pm'
-				),
-				React.createElement(
-					'div',
-					{ style: { order: 0 }, className: 'dayTable-cell dayTable-cell--header' },
+					{ className: 'dayTable dayTable--3cols dayTable--collapse' },
 					React.createElement(
-						'h3',
-						null,
-						this.dayView(0)
-					)
-				),
-				React.createElement(
-					'div',
-					{ style: { order: 1 }, className: 'dayTable-cell' },
-					'8am'
-				),
-				React.createElement(
-					'div',
-					{ style: { order: 2 }, className: 'dayTable-cell' },
-					'9am'
-				),
-				React.createElement(
-					'div',
-					{ style: { order: 3 }, className: 'dayTable-cell' },
-					'10am'
-				),
-				React.createElement(
-					'div',
-					{ style: { order: 4 }, className: 'dayTable-cell' },
-					'11am'
-				),
-				React.createElement(
-					'div',
-					{ style: { order: 5 }, className: 'dayTable-cell' },
-					'12pm'
-				),
-				React.createElement(
-					'div',
-					{ style: { order: 6 }, className: 'dayTable-cell' },
-					'1pm'
-				),
-				React.createElement(
-					'div',
-					{ style: { order: 7 }, className: 'dayTable-cell' },
-					'2pm'
-				),
-				React.createElement(
-					'div',
-					{ style: { order: 8 }, className: 'dayTable-cell' },
-					'3pm'
-				),
-				React.createElement(
-					'div',
-					{ style: { order: 9 }, className: 'dayTable-cell' },
-					'4pm'
-				),
-				React.createElement(
-					'div',
-					{ style: { order: 0 }, className: 'dayTable-cell dayTable-cell--header' },
+						'div',
+						{ style: { order: 0 }, className: 'dayTable-cell dayTable-cell--header' },
+						React.createElement(
+							'h3',
+							null,
+							this.dayView(-1)
+						)
+					),
 					React.createElement(
-						'h3',
-						null,
-						this.dayView(1)
+						'div',
+						{ style: { order: 1 }, className: 'dayTable-cell' },
+						'8am'
+					),
+					React.createElement(
+						'div',
+						{ style: { order: 2 }, className: 'dayTable-cell' },
+						'9am'
+					),
+					React.createElement(
+						'div',
+						{ style: { order: 3 }, className: 'dayTable-cell' },
+						'10am'
+					),
+					React.createElement(
+						'div',
+						{ style: { order: 4 }, className: 'dayTable-cell' },
+						'11am'
+					),
+					React.createElement(
+						'div',
+						{ style: { order: 5 }, className: 'dayTable-cell' },
+						'12pm'
+					),
+					React.createElement(
+						'div',
+						{ style: { order: 6 }, className: 'dayTable-cell' },
+						'1pm'
+					),
+					React.createElement(
+						'div',
+						{ style: { order: 7 }, className: 'dayTable-cell' },
+						'2pm'
+					),
+					React.createElement(
+						'div',
+						{ style: { order: 8 }, className: 'dayTable-cell' },
+						'3pm'
+					),
+					React.createElement(
+						'div',
+						{ style: { order: 9 }, className: 'dayTable-cell' },
+						'4pm'
+					),
+					React.createElement(
+						'div',
+						{ style: { order: 0 }, className: 'dayTable-cell dayTable-cell--header' },
+						React.createElement(
+							'h3',
+							null,
+							this.dayView(0)
+						)
+					),
+					React.createElement(
+						'div',
+						{ style: { order: 1 }, className: 'dayTable-cell' },
+						'8am'
+					),
+					React.createElement(
+						'div',
+						{ style: { order: 2 }, className: 'dayTable-cell' },
+						'9am'
+					),
+					React.createElement(
+						'div',
+						{ style: { order: 3 }, className: 'dayTable-cell' },
+						'10am'
+					),
+					React.createElement(
+						'div',
+						{ style: { order: 4 }, className: 'dayTable-cell' },
+						'11am'
+					),
+					React.createElement(
+						'div',
+						{ style: { order: 5 }, className: 'dayTable-cell' },
+						'12pm'
+					),
+					React.createElement(
+						'div',
+						{ style: { order: 6 }, className: 'dayTable-cell' },
+						'1pm'
+					),
+					React.createElement(
+						'div',
+						{ style: { order: 7 }, className: 'dayTable-cell' },
+						'2pm'
+					),
+					React.createElement(
+						'div',
+						{ style: { order: 8 }, className: 'dayTable-cell' },
+						'3pm'
+					),
+					React.createElement(
+						'div',
+						{ style: { order: 9 }, className: 'dayTable-cell' },
+						'4pm'
+					),
+					React.createElement(
+						'div',
+						{ style: { order: 0 }, className: 'dayTable-cell dayTable-cell--header' },
+						React.createElement(
+							'h3',
+							null,
+							this.dayView(1)
+						)
+					),
+					React.createElement(
+						'div',
+						{ style: { order: 1 }, className: 'dayTable-cell' },
+						'8am'
+					),
+					React.createElement(
+						'div',
+						{ style: { order: 2 }, className: 'dayTable-cell' },
+						'9am'
+					),
+					React.createElement(
+						'div',
+						{ style: { order: 3 }, className: 'dayTable-cell' },
+						'10am'
+					),
+					React.createElement(
+						'div',
+						{ style: { order: 4 }, className: 'dayTable-cell' },
+						'11am'
+					),
+					React.createElement(
+						'div',
+						{ style: { order: 5 }, className: 'dayTable-cell' },
+						'12pm'
+					),
+					React.createElement(
+						'div',
+						{ style: { order: 6 }, className: 'dayTable-cell' },
+						'1pm'
+					),
+					React.createElement(
+						'div',
+						{ style: { order: 7 }, className: 'dayTable-cell' },
+						'2pm'
+					),
+					React.createElement(
+						'div',
+						{ style: { order: 8 }, className: 'dayTable-cell' },
+						'3pm'
+					),
+					React.createElement(
+						'div',
+						{ style: { order: 9 }, className: 'dayTable-cell' },
+						'4pm'
 					)
-				),
-				React.createElement(
-					'div',
-					{ style: { order: 1 }, className: 'dayTable-cell' },
-					'8am'
-				),
-				React.createElement(
-					'div',
-					{ style: { order: 2 }, className: 'dayTable-cell' },
-					'9am'
-				),
-				React.createElement(
-					'div',
-					{ style: { order: 3 }, className: 'dayTable-cell' },
-					'10am'
-				),
-				React.createElement(
-					'div',
-					{ style: { order: 4 }, className: 'dayTable-cell' },
-					'11am'
-				),
-				React.createElement(
-					'div',
-					{ style: { order: 5 }, className: 'dayTable-cell' },
-					'12pm'
-				),
-				React.createElement(
-					'div',
-					{ style: { order: 6 }, className: 'dayTable-cell' },
-					'1pm'
-				),
-				React.createElement(
-					'div',
-					{ style: { order: 7 }, className: 'dayTable-cell' },
-					'2pm'
-				),
-				React.createElement(
-					'div',
-					{ style: { order: 8 }, className: 'dayTable-cell' },
-					'3pm'
-				),
-				React.createElement(
-					'div',
-					{ style: { order: 9 }, className: 'dayTable-cell' },
-					'4pm'
 				)
 			);
 		}
