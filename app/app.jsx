@@ -5,7 +5,8 @@ const Axios = require('axios');
 const DaySchedule = React.createClass({
 	getInitialState: function() {
 		return {
-			schedule: []
+			schedule: [],
+			today: new Date(),
 		};
 	},
 	componentDidMount: function() {
@@ -17,12 +18,13 @@ const DaySchedule = React.createClass({
 				});
 				console.log(th.state.schedule);
 			})
+		
 	},
     render: function() {
 
         return (
 			<div className="dayTable dayTable--3cols dayTable--collapse">
-				<div style={{order: 0}} className="dayTable-cell dayTable-cell--header"><h3>Tue, January 3</h3></div>
+				<div style={{order: 0}} className="dayTable-cell dayTable-cell--header"><h3>{this.state.today.toDateString()}</h3></div>
 				<div style={{order: 1}} className="dayTable-cell">8am</div>
 				<div style={{order: 2}} className="dayTable-cell">9am</div>
 				<div style={{order: 3}} className="dayTable-cell">10am</div>
@@ -33,7 +35,7 @@ const DaySchedule = React.createClass({
 				<div style={{order: 8}} className="dayTable-cell">3pm</div>
 				<div style={{order: 9}} className="dayTable-cell">4pm</div>
 
-				<div style={{order: 0}} className="dayTable-cell dayTable-cell--header"><h3>Tue, January 3</h3></div>
+				<div style={{order: 0}} className="dayTable-cell dayTable-cell--header"><h3></h3></div>
 				<div style={{order: 1}} className="dayTable-cell">8am</div>
 				<div style={{order: 2}} className="dayTable-cell">9am</div>
 				<div style={{order: 3}} className="dayTable-cell">10am</div>
@@ -44,7 +46,7 @@ const DaySchedule = React.createClass({
 				<div style={{order: 8}} className="dayTable-cell">3pm</div>
 				<div style={{order: 9}} className="dayTable-cell">4pm</div>
 
-				<div style={{order: 0}} className="dayTable-cell dayTable-cell--header"><h3>Tue, January 3</h3></div>
+				<div style={{order: 0}} className="dayTable-cell dayTable-cell--header"><h3></h3></div>
 				<div style={{order: 1}} className="dayTable-cell">8am</div>
 				<div style={{order: 2}} className="dayTable-cell">9am</div>
 				<div style={{order: 3}} className="dayTable-cell">10am</div>

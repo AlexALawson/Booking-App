@@ -55,7 +55,8 @@
 
 		getInitialState: function getInitialState() {
 			return {
-				schedule: []
+				schedule: [],
+				today: new Date()
 			};
 		},
 		componentDidMount: function componentDidMount() {
@@ -78,7 +79,7 @@
 					React.createElement(
 						'h3',
 						null,
-						'Tue, January 3'
+						this.state.today.toDateString()
 					)
 				),
 				React.createElement(
@@ -129,11 +130,7 @@
 				React.createElement(
 					'div',
 					{ style: { order: 0 }, className: 'dayTable-cell dayTable-cell--header' },
-					React.createElement(
-						'h3',
-						null,
-						'Tue, January 3'
-					)
+					React.createElement('h3', null)
 				),
 				React.createElement(
 					'div',
@@ -183,11 +180,7 @@
 				React.createElement(
 					'div',
 					{ style: { order: 0 }, className: 'dayTable-cell dayTable-cell--header' },
-					React.createElement(
-						'h3',
-						null,
-						'Tue, January 3'
-					)
+					React.createElement('h3', null)
 				),
 				React.createElement(
 					'div',
