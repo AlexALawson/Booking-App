@@ -68,6 +68,11 @@
 				console.log(th.state.schedule);
 			});
 		},
+		dayView: function dayView(adj) {
+			var dateVal = new Date();
+			dateVal.setDate(this.state.today.getDate() + adj);
+			return dateVal.toDateString();
+		},
 		render: function render() {
 
 			return React.createElement(
@@ -79,7 +84,7 @@
 					React.createElement(
 						'h3',
 						null,
-						this.state.today.toDateString()
+						this.dayView(-1)
 					)
 				),
 				React.createElement(
@@ -130,7 +135,11 @@
 				React.createElement(
 					'div',
 					{ style: { order: 0 }, className: 'dayTable-cell dayTable-cell--header' },
-					React.createElement('h3', null)
+					React.createElement(
+						'h3',
+						null,
+						this.dayView(0)
+					)
 				),
 				React.createElement(
 					'div',
@@ -180,7 +189,11 @@
 				React.createElement(
 					'div',
 					{ style: { order: 0 }, className: 'dayTable-cell dayTable-cell--header' },
-					React.createElement('h3', null)
+					React.createElement(
+						'h3',
+						null,
+						this.dayView(1)
+					)
 				),
 				React.createElement(
 					'div',
