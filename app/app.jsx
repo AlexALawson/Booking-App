@@ -11,18 +11,19 @@ const DaySchedule = React.createClass({
 	},
 	componentDidMount: function() {
 		var th = this;
-		this.serverRequest = Axios.get('../data.json')
-			.then(function(result) {
-				th.setState({
-					schedule: result.data.schedule
-				});
-				console.log(th.state.schedule);
-			})
+		// this.serverRequest = Axios.get('../data.json')
+		// 	.then(function(result) {
+		// 		th.setState({
+		// 			schedule: result.data.schedule
+		// 		});
+		// 		console.log(th.state.schedule);
+		// 	})
 		
 	},
 	dayView: function(adj) {
-		var dateVal = new Date ();
+		let dateVal = new Date ();
 		dateVal.setDate(this.state.today.getDate() + adj);
+		console.log(this.state.today);
 		return dateVal.toDateString();
 	},
     render: function() {

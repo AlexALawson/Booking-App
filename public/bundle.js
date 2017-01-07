@@ -61,16 +61,18 @@
 		},
 		componentDidMount: function componentDidMount() {
 			var th = this;
-			this.serverRequest = Axios.get('../data.json').then(function (result) {
-				th.setState({
-					schedule: result.data.schedule
-				});
-				console.log(th.state.schedule);
-			});
+			// this.serverRequest = Axios.get('../data.json')
+			// 	.then(function(result) {
+			// 		th.setState({
+			// 			schedule: result.data.schedule
+			// 		});
+			// 		console.log(th.state.schedule);
+			// 	})
 		},
 		dayView: function dayView(adj) {
 			var dateVal = new Date();
 			dateVal.setDate(this.state.today.getDate() + adj);
+			console.log(this.state.today);
 			return dateVal.toDateString();
 		},
 		render: function render() {
