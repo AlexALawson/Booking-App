@@ -1,6 +1,7 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
 const Axios = require('axios');
+const Header = require('./Header');
 
 const DaySchedule = React.createClass({
 	getInitialState: function() {
@@ -20,23 +21,29 @@ const DaySchedule = React.createClass({
 		// 	})
 		
 	},
-	dayView: function(adj) {
+	clickHandler: function() {
+		let newDay = this.adjustDay(1);
+		this.setState({
+			today: newDay
+		})
+		console.log('newDay', newDay);
+		console.log('clickHandler date', this.state.today);
+	},
+	adjustDay: function(adj, type) {
 		let dateVal = new Date ();
 		dateVal.setDate(this.state.today.getDate() + adj);
-		console.log(this.state.today);
-		return dateVal.toDateString();
+		if (type === "string") {
+			return dateVal.toDateString();
+		}
+		return dateVal;
 	},
     render: function() {
-
+		console.log('rendering', this.state.today);
         return (
 			<div>
-				<div className="dayView-header">
-					<div className='button-left'></div>
-					<h2 className="header">Select a Time</h2>
-					<div className='button-right'></div>				
-				</div>
+				<Header />
 				<div className="dayTable dayTable--3cols dayTable--collapse">
-					<div style={{order: 0}} className="dayTable-cell dayTable-cell--header"><h3>{this.dayView(-1)}</h3></div>
+					<div style={{order: 0}} className="dayTable-cell dayTable-cell--header"><h3>{this.adjustDay(-1, 'string')}</h3></div>
 					<div style={{order: 1}} className="dayTable-cell">8am</div>
 					<div style={{order: 2}} className="dayTable-cell">9am</div>
 					<div style={{order: 3}} className="dayTable-cell">10am</div>
@@ -47,7 +54,7 @@ const DaySchedule = React.createClass({
 					<div style={{order: 8}} className="dayTable-cell">3pm</div>
 					<div style={{order: 9}} className="dayTable-cell">4pm</div>
 
-					<div style={{order: 0}} className="dayTable-cell dayTable-cell--header"><h3>{this.dayView(0)}</h3></div>
+					<div style={{order: 0}} className="dayTable-cell dayTable-cell--header"><h3>{this.adjustDay(0, 'string')}</h3></div>
 					<div style={{order: 1}} className="dayTable-cell">8am</div>
 					<div style={{order: 2}} className="dayTable-cell">9am</div>
 					<div style={{order: 3}} className="dayTable-cell">10am</div>
@@ -58,7 +65,7 @@ const DaySchedule = React.createClass({
 					<div style={{order: 8}} className="dayTable-cell">3pm</div>
 					<div style={{order: 9}} className="dayTable-cell">4pm</div>
 
-					<div style={{order: 0}} className="dayTable-cell dayTable-cell--header"><h3>{this.dayView(1)}</h3></div>
+					<div style={{order: 0}} onClick={this.clickHandler} className="dayTable-cell dayTable-cell--header"><h3>{this.adjustDay(1, 'string')}</h3></div>
 					<div style={{order: 1}} className="dayTable-cell">8am</div>
 					<div style={{order: 2}} className="dayTable-cell">9am</div>
 					<div style={{order: 3}} className="dayTable-cell">10am</div>

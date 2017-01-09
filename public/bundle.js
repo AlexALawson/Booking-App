@@ -49,6 +49,7 @@
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(158);
 	var Axios = __webpack_require__(159);
+	var Header = __webpack_require__(184);
 
 	var DaySchedule = React.createClass({
 		displayName: 'DaySchedule',
@@ -69,28 +70,28 @@
 			// 		console.log(th.state.schedule);
 			// 	})
 		},
-		dayView: function dayView(adj) {
+		clickHandler: function clickHandler() {
+			var newDay = this.adjustDay(1);
+			this.setState({
+				today: newDay
+			});
+			console.log('newDay', newDay);
+			console.log('clickHandler date', this.state.today);
+		},
+		adjustDay: function adjustDay(adj, type) {
 			var dateVal = new Date();
 			dateVal.setDate(this.state.today.getDate() + adj);
-			console.log(this.state.today);
-			return dateVal.toDateString();
+			if (type === "string") {
+				return dateVal.toDateString();
+			}
+			return dateVal;
 		},
 		render: function render() {
-
+			console.log('rendering', this.state.today);
 			return React.createElement(
 				'div',
 				null,
-				React.createElement(
-					'div',
-					{ className: 'dayView-header' },
-					React.createElement('div', { className: 'button-left' }),
-					React.createElement(
-						'h2',
-						{ className: 'header' },
-						'Select a Time'
-					),
-					React.createElement('div', { className: 'button-right' })
-				),
+				React.createElement(Header, null),
 				React.createElement(
 					'div',
 					{ className: 'dayTable dayTable--3cols dayTable--collapse' },
@@ -100,7 +101,7 @@
 						React.createElement(
 							'h3',
 							null,
-							this.dayView(-1)
+							this.adjustDay(-1, 'string')
 						)
 					),
 					React.createElement(
@@ -154,7 +155,7 @@
 						React.createElement(
 							'h3',
 							null,
-							this.dayView(0)
+							this.adjustDay(0, 'string')
 						)
 					),
 					React.createElement(
@@ -204,11 +205,11 @@
 					),
 					React.createElement(
 						'div',
-						{ style: { order: 0 }, className: 'dayTable-cell dayTable-cell--header' },
+						{ style: { order: 0 }, onClick: this.clickHandler, className: 'dayTable-cell dayTable-cell--header' },
 						React.createElement(
 							'h3',
 							null,
-							this.dayView(1)
+							this.adjustDay(1, 'string')
 						)
 					),
 					React.createElement(
@@ -21445,6 +21446,31 @@
 	  };
 	};
 
+
+/***/ },
+/* 184 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+	var ReactDOM = __webpack_require__(158);
+
+	var Header = function Header() {
+	    return React.createElement(
+	        'div',
+	        { className: 'dayView-header' },
+	        React.createElement('div', { className: 'button-left' }),
+	        React.createElement(
+	            'h2',
+	            { className: 'header' },
+	            'Select Day and Time'
+	        ),
+	        React.createElement('div', { className: 'button-right' })
+	    );
+	};
+
+	module.exports = Header;
 
 /***/ }
 /******/ ]);
