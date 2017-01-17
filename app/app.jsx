@@ -19,15 +19,16 @@ const DaySchedule = React.createClass({
 		// 		});
 		// 		console.log(th.state.schedule);
 		// 	})
-		
+		console.log('DIDMOUNT this.state.today', this.state.today);
 	},
 	clickHandler: function() {
+		console.log('this.state.today', this.state.today);
 		let newDay = this.adjustDay(1);
+		console.log('this.state.today', this.state.today);
 		this.setState({
 			today: newDay
 		})
-		console.log('newDay', newDay);
-		console.log('clickHandler date', this.state.today);
+		console.log('this.state.today', this.state.today);
 	},
 	adjustDay: function(adj, type) {
 		let dateVal = new Date ();
@@ -38,7 +39,7 @@ const DaySchedule = React.createClass({
 		return dateVal;
 	},
     render: function() {
-		console.log('rendering', this.state.today);
+		console.log('RENDERED this.state.today', this.state.today);
         return (
 			<div>
 				<Header />

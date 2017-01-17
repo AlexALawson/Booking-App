@@ -69,14 +69,16 @@
 			// 		});
 			// 		console.log(th.state.schedule);
 			// 	})
+			console.log('DIDMOUNT this.state.today', this.state.today);
 		},
 		clickHandler: function clickHandler() {
+			console.log('this.state.today', this.state.today);
 			var newDay = this.adjustDay(1);
+			console.log('this.state.today', this.state.today);
 			this.setState({
 				today: newDay
 			});
-			console.log('newDay', newDay);
-			console.log('clickHandler date', this.state.today);
+			console.log('this.state.today', this.state.today);
 		},
 		adjustDay: function adjustDay(adj, type) {
 			var dateVal = new Date();
@@ -87,7 +89,7 @@
 			return dateVal;
 		},
 		render: function render() {
-			console.log('rendering', this.state.today);
+			console.log('RENDERED this.state.today', this.state.today);
 			return React.createElement(
 				'div',
 				null,
