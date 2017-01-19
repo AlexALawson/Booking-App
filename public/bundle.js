@@ -88,9 +88,9 @@
 			}
 			return dateVal;
 		},
-		handleClick: function handleClick(component, event) {
+		handleClick: function handleClick(component) {
 			console.log('child clicked');
-			// console.log('component', component, 'event', event);
+			console.log(component.target.className);
 		},
 		render: function render() {
 			return React.createElement(

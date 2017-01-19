@@ -38,9 +38,9 @@ const DaySchedule = React.createClass({
 		}
 		return dateVal;
 	},
-	handleClick: function (component, event) {
+	handleClick: function (component) {
 		console.log('child clicked');
-    	// console.log('component', component, 'event', event);
+		console.log(component.target.className);
 	},
     render: function() {
 		// console.log('RENDERED this.state.today', this.state.today);
