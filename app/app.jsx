@@ -19,7 +19,7 @@ const DaySchedule = React.createClass({
 		// 		});
 		// 		console.log(th.state.schedule);
 		// 	})
-		console.log('DIDMOUNT this.state.today', this.state.today);
+		// console.log('DIDMOUNT this.state.today', this.state.today);
 	},
 	clickHandler: function() {
 		console.log('this.state.today', this.state.today);
@@ -38,12 +38,17 @@ const DaySchedule = React.createClass({
 		}
 		return dateVal;
 	},
+	handleClick: function (component, event) {
+		console.log('child clicked');
+    	// console.log('component', component, 'event', event);
+	},
     render: function() {
-		console.log('RENDERED this.state.today', this.state.today);
+		// console.log('RENDERED this.state.today', this.state.today);
         return (
 			<div>
-				<Header />
-				<div className="dayTable dayTable--3cols dayTable--collapse">
+				<Header onArrowClick={this.handleClick} />
+				<div className="dayTable"> 
+					{/*  in above div= dayTable--3cols dayTable--collapse
 					<div style={{order: 0}} className="dayTable-cell dayTable-cell--header"><h3>{this.adjustDay(-1, 'string')}</h3></div>
 					<div style={{order: 1}} className="dayTable-cell">8am</div>
 					<div style={{order: 2}} className="dayTable-cell">9am</div>
@@ -54,6 +59,7 @@ const DaySchedule = React.createClass({
 					<div style={{order: 7}} className="dayTable-cell">2pm</div>
 					<div style={{order: 8}} className="dayTable-cell">3pm</div>
 					<div style={{order: 9}} className="dayTable-cell">4pm</div>
+					*/}
 
 					<div style={{order: 0}} className="dayTable-cell dayTable-cell--header"><h3>{this.adjustDay(0, 'string')}</h3></div>
 					<div style={{order: 1}} className="dayTable-cell">8am</div>
@@ -66,6 +72,7 @@ const DaySchedule = React.createClass({
 					<div style={{order: 8}} className="dayTable-cell">3pm</div>
 					<div style={{order: 9}} className="dayTable-cell">4pm</div>
 
+					{/*
 					<div style={{order: 0}} onClick={this.clickHandler} className="dayTable-cell dayTable-cell--header"><h3>{this.adjustDay(1, 'string')}</h3></div>
 					<div style={{order: 1}} className="dayTable-cell">8am</div>
 					<div style={{order: 2}} className="dayTable-cell">9am</div>
@@ -76,6 +83,7 @@ const DaySchedule = React.createClass({
 					<div style={{order: 7}} className="dayTable-cell">2pm</div>
 					<div style={{order: 8}} className="dayTable-cell">3pm</div>
 					<div style={{order: 9}} className="dayTable-cell">4pm</div>
+					*/}
 				</div>			
 			</div>
         )
