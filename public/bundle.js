@@ -89,13 +89,15 @@
 			return dateVal;
 		},
 		handleClick: function handleClick(component) {
-			console.log('child clicked');
-			//console.log(component.target.className);
 			var dayHolder = this.state.today;
 			if (component.target.className === "button-left") {
 				console.log("left triggered");
+				dayHolder.setDate(dayHolder.getDate() - 1);
+				console.log(dayHolder.toDateString());
 			} else if (component.target.className === "button-right") {
 				console.log("right triggered");
+				dayHolder.setDate(dayHolder.getDate() + 1);
+				console.log(dayHolder.toDateString());
 			}
 		},
 		render: function render() {
@@ -112,7 +114,7 @@
 						React.createElement(
 							'h3',
 							null,
-							this.adjustDay(0, 'string')
+							this.state.today.toDateString()
 						)
 					),
 					React.createElement(

@@ -39,13 +39,15 @@ const DaySchedule = React.createClass({
 		return dateVal;
 	},
 	handleClick: function (component) {
-		console.log('child clicked');
-		//console.log(component.target.className);
 		var dayHolder = this.state.today;
 		if (component.target.className === "button-left") {
 			console.log("left triggered");
+			dayHolder.setDate(dayHolder.getDate() - 1);
+			console.log(dayHolder.toDateString());
 		} else if (component.target.className === "button-right") {
 			console.log("right triggered");
+			dayHolder.setDate(dayHolder.getDate() + 1);
+			console.log(dayHolder.toDateString());
 		}
 	},
     render: function() {
@@ -67,7 +69,7 @@ const DaySchedule = React.createClass({
 					<div style={{order: 9}} className="dayTable-cell">4pm</div>
 					*/}
 
-					<div style={{order: 0}} className="dayTable-cell dayTable-cell--header"><h3>{this.adjustDay(0, 'string')}</h3></div>
+					<div style={{order: 0}} className="dayTable-cell dayTable-cell--header"><h3>{this.state.today.toDateString()}</h3></div>
 					<div style={{order: 1}} className="dayTable-cell">8am</div>
 					<div style={{order: 2}} className="dayTable-cell">9am</div>
 					<div style={{order: 3}} className="dayTable-cell">10am</div>
