@@ -91,13 +91,13 @@
 		handleClick: function handleClick(component) {
 			var dayHolder = this.state.today;
 			if (component.target.className === "button-left") {
-				console.log("left triggered");
+				// console.log("left triggered");
 				dayHolder.setDate(dayHolder.getDate() - 1);
-				console.log(dayHolder.toDateString());
+				this.setState({ today: dayHolder });
 			} else if (component.target.className === "button-right") {
-				console.log("right triggered");
+				// console.log("right triggered");
 				dayHolder.setDate(dayHolder.getDate() + 1);
-				console.log(dayHolder.toDateString());
+				this.setState({ today: dayHolder });
 			}
 		},
 		render: function render() {
