@@ -40,7 +40,13 @@ const DaySchedule = React.createClass({
 	},
 	handleClick: function (component) {
 		console.log('child clicked');
-		console.log(component.target.className);
+		//console.log(component.target.className);
+		var dayHolder = this.state.today;
+		if (component.target.className === "button-left") {
+			console.log("left triggered");
+		} else if (component.target.className === "button-right") {
+			console.log("right triggered");
+		}
 	},
     render: function() {
 		// console.log('RENDERED this.state.today', this.state.today);
