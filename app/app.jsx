@@ -9,10 +9,12 @@ const DaySchedule = React.createClass({
 			today: new Date(),
 		};
 	},
+	appointments: {},
 	componentDidMount: function() {
+		var th = this;
 		this.serverRequest = Axios.get('../data.json')
 			.then(function(result) {
-				console.log(result.data);
+				th.appointments = result.data;
 			})
 	},
 	handleClick: function (component) {
@@ -22,6 +24,8 @@ const DaySchedule = React.createClass({
 		} else if (component.target.className === "button-right") {
 			dayHolder.setDate(dayHolder.getDate() + 1);
 		}
+		console.log(this.appointments);
+		
 		this.setState({ today: dayHolder });
 	},
     render: function() {

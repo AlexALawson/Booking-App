@@ -59,9 +59,11 @@
 				today: new Date()
 			};
 		},
+		appointments: {},
 		componentDidMount: function componentDidMount() {
+			var th = this;
 			this.serverRequest = Axios.get('../data.json').then(function (result) {
-				console.log(result.data);
+				th.appointments = result.data;
 			});
 		},
 		handleClick: function handleClick(component) {
@@ -71,6 +73,8 @@
 			} else if (component.target.className === "button-right") {
 				dayHolder.setDate(dayHolder.getDate() + 1);
 			}
+			console.log(this.appointments);
+
 			this.setState({ today: dayHolder });
 		},
 		render: function render() {
