@@ -56,50 +56,22 @@
 
 		getInitialState: function getInitialState() {
 			return {
-				schedule: [],
 				today: new Date()
 			};
 		},
 		componentDidMount: function componentDidMount() {
-			var th = this;
-			// this.serverRequest = Axios.get('../data.json')
-			// 	.then(function(result) {
-			// 		th.setState({
-			// 			schedule: result.data.schedule
-			// 		});
-			// 		console.log(th.state.schedule);
-			// 	})
-			// console.log('DIDMOUNT this.state.today', this.state.today);
-			console.log(this.state.today.toDateString());
-		},
-		clickHandler: function clickHandler() {
-			console.log('this.state.today', this.state.today);
-			var newDay = this.adjustDay(1);
-			console.log('this.state.today', this.state.today);
-			this.setState({
-				today: newDay
+			this.serverRequest = Axios.get('../data.json').then(function (result) {
+				console.log(result.data);
 			});
-			console.log('this.state.today', this.state.today);
-		},
-		adjustDay: function adjustDay(adj, type) {
-			var dateVal = new Date();
-			dateVal.setDate(this.state.today.getDate() + adj);
-			if (type === "string") {
-				return dateVal.toDateString();
-			}
-			return dateVal;
 		},
 		handleClick: function handleClick(component) {
 			var dayHolder = this.state.today;
 			if (component.target.className === "button-left") {
-				// console.log("left triggered");
 				dayHolder.setDate(dayHolder.getDate() - 1);
-				this.setState({ today: dayHolder });
 			} else if (component.target.className === "button-right") {
-				// console.log("right triggered");
 				dayHolder.setDate(dayHolder.getDate() + 1);
-				this.setState({ today: dayHolder });
 			}
+			this.setState({ today: dayHolder });
 		},
 		render: function render() {
 			return React.createElement(
