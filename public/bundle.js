@@ -56,14 +56,15 @@
 
 		getInitialState: function getInitialState() {
 			return {
-				today: new Date()
+				today: new Date(),
+				dayData: {}
 			};
 		},
-		appointments: {},
+
 		componentDidMount: function componentDidMount() {
 			var th = this;
 			this.serverRequest = Axios.get('../data.json').then(function (result) {
-				th.appointments = result.data;
+				th.setState({ dayData: JSON.parse(JSON.stringify(result.data)) });
 			});
 		},
 		handleClick: function handleClick(component) {
@@ -73,9 +74,14 @@
 			} else if (component.target.className === "button-right") {
 				dayHolder.setDate(dayHolder.getDate() + 1);
 			}
-			console.log(this.appointments);
-
 			this.setState({ today: dayHolder });
+		},
+		hourClass: function hourClass(hrStr) {
+			if (this.state.dayData.date === this.state.today.toDateString()) {
+				;
+				console.log('winning');
+			}
+			return "dayTable-cell dayTable-cell--avail";
 		},
 		render: function render() {
 			return React.createElement(
@@ -101,7 +107,7 @@
 					),
 					React.createElement(
 						'div',
-						{ style: { order: 2 }, className: 'dayTable-cell' },
+						{ style: { order: 2 }, className: this.hourClass('9am') },
 						'9am'
 					),
 					React.createElement(

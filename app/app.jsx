@@ -7,14 +7,15 @@ const DaySchedule = React.createClass({
 	getInitialState: function() {
 		return {
 			today: new Date(),
+			dayData: {},
 		};
 	},
-	appointments: {},
+	
 	componentDidMount: function() {
 		var th = this;
 		this.serverRequest = Axios.get('../data.json')
 			.then(function(result) {
-				th.appointments = result.data;
+				th.setState({ dayData: JSON.parse(JSON.stringify(result.data)) });
 			})
 	},
 	handleClick: function (component) {
@@ -23,10 +24,14 @@ const DaySchedule = React.createClass({
 			dayHolder.setDate(dayHolder.getDate() - 1);
 		} else if (component.target.className === "button-right") {
 			dayHolder.setDate(dayHolder.getDate() + 1);
-		}
-		console.log(this.appointments);
-		
+		}		
 		this.setState({ today: dayHolder });
+	},
+	hourClass: function (hrStr) {
+		if(this.state.dayData.date === this.state.today.toDateString()){;
+			console.log('winning');
+		}
+		return("dayTable-cell dayTable-cell--avail");
 	},
     render: function() {
         return (
@@ -48,7 +53,7 @@ const DaySchedule = React.createClass({
 
 					<div style={{order: 0}} className="dayTable-cell dayTable-cell--header"><h3>{this.state.today.toDateString()}</h3></div>
 					<div style={{order: 1}} className="dayTable-cell">8am</div>
-					<div style={{order: 2}} className="dayTable-cell">9am</div>
+					<div style={{order: 2}} className={this.hourClass('9am')}>9am</div>
 					<div style={{order: 3}} className="dayTable-cell">10am</div>
 					<div style={{order: 4}} className="dayTable-cell">11am</div>
 					<div style={{order: 5}} className="dayTable-cell">12pm</div>
