@@ -20,6 +20,7 @@ const DaySchedule = React.createClass({
 		// 		console.log(th.state.schedule);
 		// 	})
 		// console.log('DIDMOUNT this.state.today', this.state.today);
+		console.log(this.state.today.toDateString());
 	},
 	clickHandler: function() {
 		console.log('this.state.today', this.state.today);
