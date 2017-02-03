@@ -29,7 +29,7 @@ const DaySchedule = React.createClass({
 	},
 	hourClass: function (hrStr) {
 		if(this.state.dayData.date === this.state.today.toDateString()){;
-			console.log('winning');
+			console.log(this.state.dayData.appointments);
 		}
 		return("dayTable-cell dayTable-cell--avail");
 	},
