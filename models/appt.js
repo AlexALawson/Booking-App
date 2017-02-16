@@ -8,7 +8,6 @@ const ApptSchema = new Schema({
 		required: true
 	}, 
 	startTime: Date, 
-	endTime: Date,
 	clientName: {
 		type: String,
 		required: true

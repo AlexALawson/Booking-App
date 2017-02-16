@@ -30,7 +30,7 @@ const DaySchedule = React.createClass({
 		console.log('clickHandler date', this.state.today);
 	},
 	adjustDay: function(adj, type) {
-		let dateVal = new Date ();
+		let dateVal = new Date();
 		dateVal.setDate(this.state.today.getDate() + adj);
 		if (type === "string") {
 			return dateVal.toDateString();
