@@ -56,52 +56,48 @@
 
 		getInitialState: function getInitialState() {
 			return {
-				schedule: [],
-				today: new Date()
+				today: new Date(),
+				dayData: {}
 			};
 		},
+
 		componentDidMount: function componentDidMount() {
 			var th = this;
-			// this.serverRequest = Axios.get('../data.json')
-			// 	.then(function(result) {
-			// 		th.setState({
-			// 			schedule: result.data.schedule
-			// 		});
-			// 		console.log(th.state.schedule);
-			// 	})
-		},
-		clickHandler: function clickHandler() {
-			var newDay = this.adjustDay(1);
-			this.setState({
-				today: newDay
+			this.serverRequest = Axios.get('../data.json').then(function (result) {
+				th.setState({ dayData: JSON.parse(JSON.stringify(result.data)) });
 			});
-			console.log('newDay', newDay);
-			console.log('clickHandler date', this.state.today);
 		},
-		adjustDay: function adjustDay(adj, type) {
-			var dateVal = new Date();
-			dateVal.setDate(this.state.today.getDate() + adj);
-			if (type === "string") {
-				return dateVal.toDateString();
+		handleClick: function handleClick(component) {
+			var dayHolder = this.state.today;
+			if (component.target.className === "button-left") {
+				dayHolder.setDate(dayHolder.getDate() - 1);
+			} else if (component.target.className === "button-right") {
+				dayHolder.setDate(dayHolder.getDate() + 1);
 			}
-			return dateVal;
+			this.setState({ today: dayHolder });
+		},
+		hourClass: function hourClass(hrStr) {
+			if (this.state.dayData.date === this.state.today.toDateString()) {
+				;
+				console.log(this.state.dayData.appointments);
+			}
+			return "dayTable-cell dayTable-cell--avail";
 		},
 		render: function render() {
-			console.log('rendering', this.state.today);
 			return React.createElement(
 				'div',
 				null,
-				React.createElement(Header, null),
+				React.createElement(Header, { onArrowClick: this.handleClick }),
 				React.createElement(
 					'div',
-					{ className: 'dayTable dayTable--3cols dayTable--collapse' },
+					{ className: 'dayTable' },
 					React.createElement(
 						'div',
 						{ style: { order: 0 }, className: 'dayTable-cell dayTable-cell--header' },
 						React.createElement(
 							'h3',
 							null,
-							this.adjustDay(-1, 'string')
+							this.state.today.toDateString()
 						)
 					),
 					React.createElement(
@@ -111,115 +107,7 @@
 					),
 					React.createElement(
 						'div',
-						{ style: { order: 2 }, className: 'dayTable-cell' },
-						'9am'
-					),
-					React.createElement(
-						'div',
-						{ style: { order: 3 }, className: 'dayTable-cell' },
-						'10am'
-					),
-					React.createElement(
-						'div',
-						{ style: { order: 4 }, className: 'dayTable-cell' },
-						'11am'
-					),
-					React.createElement(
-						'div',
-						{ style: { order: 5 }, className: 'dayTable-cell' },
-						'12pm'
-					),
-					React.createElement(
-						'div',
-						{ style: { order: 6 }, className: 'dayTable-cell' },
-						'1pm'
-					),
-					React.createElement(
-						'div',
-						{ style: { order: 7 }, className: 'dayTable-cell' },
-						'2pm'
-					),
-					React.createElement(
-						'div',
-						{ style: { order: 8 }, className: 'dayTable-cell' },
-						'3pm'
-					),
-					React.createElement(
-						'div',
-						{ style: { order: 9 }, className: 'dayTable-cell' },
-						'4pm'
-					),
-					React.createElement(
-						'div',
-						{ style: { order: 0 }, className: 'dayTable-cell dayTable-cell--header' },
-						React.createElement(
-							'h3',
-							null,
-							this.adjustDay(0, 'string')
-						)
-					),
-					React.createElement(
-						'div',
-						{ style: { order: 1 }, className: 'dayTable-cell' },
-						'8am'
-					),
-					React.createElement(
-						'div',
-						{ style: { order: 2 }, className: 'dayTable-cell' },
-						'9am'
-					),
-					React.createElement(
-						'div',
-						{ style: { order: 3 }, className: 'dayTable-cell' },
-						'10am'
-					),
-					React.createElement(
-						'div',
-						{ style: { order: 4 }, className: 'dayTable-cell' },
-						'11am'
-					),
-					React.createElement(
-						'div',
-						{ style: { order: 5 }, className: 'dayTable-cell' },
-						'12pm'
-					),
-					React.createElement(
-						'div',
-						{ style: { order: 6 }, className: 'dayTable-cell' },
-						'1pm'
-					),
-					React.createElement(
-						'div',
-						{ style: { order: 7 }, className: 'dayTable-cell' },
-						'2pm'
-					),
-					React.createElement(
-						'div',
-						{ style: { order: 8 }, className: 'dayTable-cell' },
-						'3pm'
-					),
-					React.createElement(
-						'div',
-						{ style: { order: 9 }, className: 'dayTable-cell' },
-						'4pm'
-					),
-					React.createElement(
-						'div',
-						{ style: { order: 0 }, onClick: this.clickHandler, className: 'dayTable-cell dayTable-cell--header' },
-						React.createElement(
-							'h3',
-							null,
-							this.adjustDay(1, 'string')
-						)
-					),
-					React.createElement(
-						'div',
-						{ style: { order: 1 }, className: 'dayTable-cell' },
-						'8am'
-					),
-					React.createElement(
-						'div',
-						{ style: { order: 2 }, className: 'dayTable-cell' },
+						{ style: { order: 2 }, className: this.hourClass('9am') },
 						'9am'
 					),
 					React.createElement(
@@ -21456,19 +21344,24 @@
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(158);
 
-	var Header = function Header() {
-	    return React.createElement(
-	        'div',
-	        { className: 'dayView-header' },
-	        React.createElement('div', { className: 'button-left' }),
-	        React.createElement(
-	            'h2',
-	            { className: 'header' },
-	            'Select Day and Time'
-	        ),
-	        React.createElement('div', { className: 'button-right' })
-	    );
-	};
+	var Header = React.createClass({
+	    displayName: 'Header',
+
+	    render: function render() {
+	        return React.createElement(
+	            'div',
+	            { className: 'dayView-header' },
+	            React.createElement('div', { className: 'button-left', onClick: this.props.onArrowClick }),
+	            React.createElement(
+	                'h2',
+	                { className: 'header' },
+	                'Select Day and Time'
+	            ),
+	            React.createElement('div', { className: 'button-right', onClick: this.props.onArrowClick })
+	        );
+	    }
+
+	});
 
 	module.exports = Header;
 

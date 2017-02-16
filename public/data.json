@@ -1,38 +1,21 @@
 {
-    "schedule": {
-        "20170104": [
-                {
-                    "timeSlot": "9am",
-                    "client": "Jane Doe",
-                    "type": "Wedding consult"
-                },
-                {
-                    "timeSlot": "10am",
-                    "client": "John Smith",
-                    "type": "Portrait shoot"
-                },
-                {
-                    "timeSlot": "2pm",
-                    "client": "Pat McPatterson",
-                    "type": "Family shoot"
-                }
-            ],
-            "20170105": [
-                {
-                    "timeSlot": "11am",
-                    "client": "Freddie King",
-                    "type": "Band shoot"
-                },
-                {
-                    "timeSlot": "12pm",
-                    "client": "Freddie King",
-                    "type": "Band shoot"
-                },
-                {
-                    "timeSlot": "1pm",
-                    "client": "Putin/Trump",
-                    "type": "Engagement consult"
-                }
-            ]
-    }
+
+    "date": "Thu Feb 02 2017",
+    "appointments": [
+        {
+            "time": "8am",
+            "client": "John Doe",
+            "notes": "Consulting about engagement photoshoot"
+        },
+        {
+            "time": "11am",
+            "client": "Dian Fossey",
+            "notes": "Photoshoot with her favorite primates"
+        },
+        {
+            "time": "3pm",
+            "client": "Kendall Smith",
+            "notes": "High school yearbook photoshoot"            
+        }
+    ]
 }

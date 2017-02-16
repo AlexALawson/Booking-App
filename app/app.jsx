@@ -6,46 +6,62 @@ const Header = require('./Header');
 const DaySchedule = React.createClass({
 	getInitialState: function() {
 		return {
-			schedule: [],
 			today: new Date(),
+			dayData: {},
 		};
 	},
+	
 	componentDidMount: function() {
 		var th = this;
-		// this.serverRequest = Axios.get('../data.json')
-		// 	.then(function(result) {
-		// 		th.setState({
-		// 			schedule: result.data.schedule
-		// 		});
-		// 		console.log(th.state.schedule);
-		// 	})
-		
+		this.serverRequest = Axios.get('../data.json')
+			.then(function(result) {
+				th.setState({ dayData: JSON.parse(JSON.stringify(result.data)) });
+			})
 	},
-	clickHandler: function() {
-		let newDay = this.adjustDay(1);
-		this.setState({
-			today: newDay
-		})
-		console.log('newDay', newDay);
-		console.log('clickHandler date', this.state.today);
+	handleClick: function (component) {
+		var dayHolder = this.state.today;
+		if (component.target.className === "button-left") {
+			dayHolder.setDate(dayHolder.getDate() - 1);
+		} else if (component.target.className === "button-right") {
+			dayHolder.setDate(dayHolder.getDate() + 1);
+		}		
+		this.setState({ today: dayHolder });
 	},
+<<<<<<< HEAD
 	adjustDay: function(adj, type) {
 		let dateVal = new Date();
 		dateVal.setDate(this.state.today.getDate() + adj);
 		if (type === "string") {
 			return dateVal.toDateString();
+=======
+	hourClass: function (hrStr) {
+		if(this.state.dayData.date === this.state.today.toDateString()){;
+			console.log(this.state.dayData.appointments);
+>>>>>>> refs/remotes/origin/master
 		}
-		return dateVal;
+		return("dayTable-cell dayTable-cell--avail");
 	},
     render: function() {
-		console.log('rendering', this.state.today);
         return (
 			<div>
-				<Header />
-				<div className="dayTable dayTable--3cols dayTable--collapse">
-					<div style={{order: 0}} className="dayTable-cell dayTable-cell--header"><h3>{this.adjustDay(-1, 'string')}</h3></div>
+				<Header onArrowClick={this.handleClick} />
+				<div className="dayTable"> 
+					{/*  in above div= dayTable--3cols dayTable--collapse
+					<div style={{order: 0}} className="dayTable-cell dayTable-cell--header"><h3></h3></div>
 					<div style={{order: 1}} className="dayTable-cell">8am</div>
 					<div style={{order: 2}} className="dayTable-cell">9am</div>
+					<div style={{order: 3}} className="dayTable-cell">10am</div>
+					<div style={{order: 4}} className="dayTable-cell">11am</div>
+					<div style={{order: 5}} className="dayTable-cell">12pm</div>
+					<div style={{order: 6}} className="dayTable-cell">1pm</div>
+					<div style={{order: 7}} className="dayTable-cell">2pm</div>
+					<div style={{order: 8}} className="dayTable-cell">3pm</div>
+					<div style={{order: 9}} className="dayTable-cell">4pm</div>
+					*/}
+
+					<div style={{order: 0}} className="dayTable-cell dayTable-cell--header"><h3>{this.state.today.toDateString()}</h3></div>
+					<div style={{order: 1}} className="dayTable-cell">8am</div>
+					<div style={{order: 2}} className={this.hourClass('9am')}>9am</div>
 					<div style={{order: 3}} className="dayTable-cell">10am</div>
 					<div style={{order: 4}} className="dayTable-cell">11am</div>
 					<div style={{order: 5}} className="dayTable-cell">12pm</div>
@@ -54,7 +70,8 @@ const DaySchedule = React.createClass({
 					<div style={{order: 8}} className="dayTable-cell">3pm</div>
 					<div style={{order: 9}} className="dayTable-cell">4pm</div>
 
-					<div style={{order: 0}} className="dayTable-cell dayTable-cell--header"><h3>{this.adjustDay(0, 'string')}</h3></div>
+					{/*
+					<div style={{order: 0}} className="dayTable-cell dayTable-cell--header"><h3></h3></div>
 					<div style={{order: 1}} className="dayTable-cell">8am</div>
 					<div style={{order: 2}} className="dayTable-cell">9am</div>
 					<div style={{order: 3}} className="dayTable-cell">10am</div>
@@ -64,17 +81,7 @@ const DaySchedule = React.createClass({
 					<div style={{order: 7}} className="dayTable-cell">2pm</div>
 					<div style={{order: 8}} className="dayTable-cell">3pm</div>
 					<div style={{order: 9}} className="dayTable-cell">4pm</div>
-
-					<div style={{order: 0}} onClick={this.clickHandler} className="dayTable-cell dayTable-cell--header"><h3>{this.adjustDay(1, 'string')}</h3></div>
-					<div style={{order: 1}} className="dayTable-cell">8am</div>
-					<div style={{order: 2}} className="dayTable-cell">9am</div>
-					<div style={{order: 3}} className="dayTable-cell">10am</div>
-					<div style={{order: 4}} className="dayTable-cell">11am</div>
-					<div style={{order: 5}} className="dayTable-cell">12pm</div>
-					<div style={{order: 6}} className="dayTable-cell">1pm</div>
-					<div style={{order: 7}} className="dayTable-cell">2pm</div>
-					<div style={{order: 8}} className="dayTable-cell">3pm</div>
-					<div style={{order: 9}} className="dayTable-cell">4pm</div>
+					*/}
 				</div>			
 			</div>
         )
