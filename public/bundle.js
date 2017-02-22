@@ -50,107 +50,13 @@
 	var ReactDOM = __webpack_require__(158);
 	var Axios = __webpack_require__(159);
 	var Header = __webpack_require__(184);
+	var DaySchedule = __webpack_require__(185);
 
-	var DaySchedule = React.createClass({
-		displayName: 'DaySchedule',
-
-		getInitialState: function getInitialState() {
-			return {
-				today: new Date(),
-				dayData: {}
-			};
-		},
-
-		componentDidMount: function componentDidMount() {
-			var th = this;
-			this.serverRequest = Axios.get('../data.json').then(function (result) {
-				th.setState({ dayData: JSON.parse(JSON.stringify(result.data)) });
-			});
-		},
-		handleClick: function handleClick(component) {
-			var dayHolder = this.state.today;
-			if (component.target.className === "button-left") {
-				dayHolder.setDate(dayHolder.getDate() - 1);
-			} else if (component.target.className === "button-right") {
-				dayHolder.setDate(dayHolder.getDate() + 1);
-			}
-			this.setState({ today: dayHolder });
-		},
-		hourClass: function hourClass(hrStr) {
-			if (this.state.dayData.date === this.state.today.toDateString()) {
-				;
-				console.log(this.state.dayData.appointments);
-			}
-			return "dayTable-cell dayTable-cell--avail";
-		},
-		render: function render() {
-			return React.createElement(
-				'div',
-				null,
-				React.createElement(Header, { onArrowClick: this.handleClick }),
-				React.createElement(
-					'div',
-					{ className: 'dayTable' },
-					React.createElement(
-						'div',
-						{ style: { order: 0 }, className: 'dayTable-cell dayTable-cell--header' },
-						React.createElement(
-							'h3',
-							null,
-							this.state.today.toDateString()
-						)
-					),
-					React.createElement(
-						'div',
-						{ style: { order: 1 }, className: 'dayTable-cell' },
-						'8am'
-					),
-					React.createElement(
-						'div',
-						{ style: { order: 2 }, className: this.hourClass('9am') },
-						'9am'
-					),
-					React.createElement(
-						'div',
-						{ style: { order: 3 }, className: 'dayTable-cell' },
-						'10am'
-					),
-					React.createElement(
-						'div',
-						{ style: { order: 4 }, className: 'dayTable-cell' },
-						'11am'
-					),
-					React.createElement(
-						'div',
-						{ style: { order: 5 }, className: 'dayTable-cell' },
-						'12pm'
-					),
-					React.createElement(
-						'div',
-						{ style: { order: 6 }, className: 'dayTable-cell' },
-						'1pm'
-					),
-					React.createElement(
-						'div',
-						{ style: { order: 7 }, className: 'dayTable-cell' },
-						'2pm'
-					),
-					React.createElement(
-						'div',
-						{ style: { order: 8 }, className: 'dayTable-cell' },
-						'3pm'
-					),
-					React.createElement(
-						'div',
-						{ style: { order: 9 }, className: 'dayTable-cell' },
-						'4pm'
-					)
-				)
-			);
-		}
-	});
-
-	ReactDOM.render(React.createElement(DaySchedule, null), document.getElementById('app'));
+	ReactDOM.render(React.createElement(
+		'div',
+		null,
+		React.createElement(DaySchedule, null)
+	), document.getElementById('app'));
 
 /***/ },
 /* 1 */
@@ -21364,6 +21270,142 @@
 	});
 
 	module.exports = Header;
+
+/***/ },
+/* 185 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+	var ReactDOM = __webpack_require__(158);
+	var Axios = __webpack_require__(159);
+	var Header = __webpack_require__(184);
+
+	var DaySchedule = React.createClass({
+		displayName: 'DaySchedule',
+
+		getInitialState: function getInitialState() {
+			return {
+				today: new Date(),
+				dayData: {}
+			};
+		},
+
+		componentDidMount: function componentDidMount() {
+			var th = this;
+			this.serverRequest = Axios.get('../data.json').then(function (result) {
+				th.setState({ dayData: JSON.parse(JSON.stringify(result.data)) });
+			});
+		},
+
+		onTimeSelect: function onTimeSelect() {
+			var timeSlot = document.getElementsByClassName('dayTable-cell');
+
+			Array.from(timeSlot).forEach(function (element) {
+				element.addEventListener('click', function () {
+					//this will be the place where a modal will appear to add appt
+					alert('clicked!');
+				});
+			});
+		},
+
+		handleClick: function handleClick(component) {
+			var dayHolder = this.state.today;
+			if (component.target.className === "button-left") {
+				dayHolder.setDate(dayHolder.getDate() - 1);
+			} else if (component.target.className === "button-right") {
+				dayHolder.setDate(dayHolder.getDate() + 1);
+			}
+			this.setState({ today: dayHolder });
+		},
+		// <<<<<<< HEAD
+		adjustDay: function adjustDay(adj, type) {
+			var dateVal = new Date();
+			dateVal.setDate(this.state.today.getDate() + adj);
+			if (type === "string") {
+				return dateVal.toDateString();
+			}
+		},
+		adjustHours: function adjustHours() {
+			var now = this.state.today;
+		},
+
+		hourClass: function hourClass(hrStr) {
+			if (this.state.dayData.date === this.state.today.toDateString()) {
+				console.log(this.state.dayData.appointments);
+				// >>>>>>> refs/remotes/origin/
+			}
+			return "dayTable-cell dayTable-cell--avail";
+		},
+		render: function render() {
+			return React.createElement(
+				'div',
+				null,
+				React.createElement(Header, { onArrowClick: this.handleClick }),
+				React.createElement(
+					'div',
+					{ className: 'dayTable', clickHandler: this.onTimeSelect() },
+					React.createElement(
+						'div',
+						{ style: { order: 0 }, className: 'dayTable-cell dayTable-cell--header' },
+						React.createElement(
+							'h3',
+							null,
+							this.state.today.toDateString()
+						)
+					),
+					React.createElement(
+						'div',
+						{ style: { order: 1 }, ref: 'time', className: 'dayTable-cell' },
+						this.adjustHours()
+					),
+					React.createElement(
+						'div',
+						{ style: { order: 2 }, className: this.hourClass('9am') },
+						'9am'
+					),
+					React.createElement(
+						'div',
+						{ style: { order: 3 }, className: 'dayTable-cell' },
+						'10am'
+					),
+					React.createElement(
+						'div',
+						{ style: { order: 4 }, className: 'dayTable-cell' },
+						'11am'
+					),
+					React.createElement(
+						'div',
+						{ style: { order: 5 }, className: 'dayTable-cell' },
+						'12pm'
+					),
+					React.createElement(
+						'div',
+						{ style: { order: 6 }, className: 'dayTable-cell' },
+						'1pm'
+					),
+					React.createElement(
+						'div',
+						{ style: { order: 7 }, className: 'dayTable-cell' },
+						'2pm'
+					),
+					React.createElement(
+						'div',
+						{ style: { order: 8 }, className: 'dayTable-cell' },
+						'3pm'
+					),
+					React.createElement(
+						'div',
+						{ style: { order: 9 }, className: 'dayTable-cell' },
+						'4pm'
+					)
+				)
+			);
+		}
+	});
+
+	module.exports = DaySchedule;
 
 /***/ }
 /******/ ]);

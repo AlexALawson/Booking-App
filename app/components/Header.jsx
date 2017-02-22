@@ -7,7 +7,7 @@ const Header = React.createClass({
             <div className="dayView-header">
                 <div className='button-left' onClick={this.props.onArrowClick}></div>
                 <h2 className="header">Select Day and Time</h2>
-                <div className='button-right' onClick={this.props.onArrowClick}></div>				
+                <div className='button-right' onClick={this.props.onArrowClick}></div>
             </div>
         )
     }
